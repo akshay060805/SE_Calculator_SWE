@@ -14,7 +14,4 @@ def perform_left_shift(a, b):
     return int(a) << int(b)
 
 def perform_right_shift(a, b):
-    shift_count = int(b)
-    if shift_count < 0:
-        raise ValueError("Negative shift count")
-    return int(a) >> shift_count
+    return int(a) >> int(b)
