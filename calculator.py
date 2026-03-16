@@ -26,8 +26,6 @@ class Calculator:
     def _evaluate_node(self, node):
         if isinstance(node, ast.Constant):
             return node.value
-        elif isinstance(node, ast.Num):
-            return node.n
         elif isinstance(node, ast.BinOp):
             left = self._evaluate_node(node.left)
             right = self._evaluate_node(node.right)
