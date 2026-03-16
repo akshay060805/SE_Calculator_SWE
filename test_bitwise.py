@@ -19,6 +19,9 @@ class TestBitwise(unittest.TestCase):
         self.assertEqual(self.calc.calculate("3 << 2"), 12)
 
     def test_bitwise_rshift(self):
+        self.assertEqual(self.calc.calculate("3 >> 1"), 1)
+
+    def test_bitwise_rshift_2(self):
         self.assertEqual(self.calc.calculate("3 >> 2"), 0)
 
     def test_bitwise_not(self):
