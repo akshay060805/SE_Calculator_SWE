@@ -55,4 +55,17 @@ class Calculator:
                 return bitwise.perform_not(operand)
             elif op_type == ast.USub:
                 return -operand
+        elif isinstance(node, ast.Call):
+            func_name = node.func.id
+            args = [self._evaluate_node(arg) for arg in node.args]
+            if func_name == "mask":
+                return bitwise.perform_bit_masking(args[0], args[1])
+            elif func_name == "count_bits":
+                return bitwise.perform_bit_counting(args[0])
+            elif func_name == "rotate_left":
+                size = args[2] if len(args) > 2 else 32
+                return bitwise.perform_bit_rotation_left(args[0], args[1], size)
+            elif func_name == "rotate_right":
+                size = args[2] if len(args) > 2 else 32
+                return bitwise.perform_bit_rotation_right(args[0], args[1], size)
         raise ValueError("Unsupported Operation")
